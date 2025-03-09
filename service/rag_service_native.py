@@ -50,7 +50,7 @@ def file_to_vector(documents: List[Document], collection_name: str):
     :param collection_name: 向量数据库集合名称
     :return:
     """
-    # 分批次处理，每个向量维度是1024，数据太大会导致占用内存过大
+    # 分批次处理，每个向量维度是512，数据太大会导致占用内存过大
     batch_size = 10
     for i in range(0, len(documents), batch_size):
         docs = documents[i:i + batch_size]  # 取当前批次的文本
