@@ -22,7 +22,7 @@ def init():
     # native加载data数据
     get_vector_store_index_native(native_collection_name)
     # llama加载data数据
-    store_text_to_vector(DATA_PATH, llama_collection_name)
+    #store_text_to_vector(DATA_PATH, llama_collection_name)
     return {"message": "ok"}
 
 

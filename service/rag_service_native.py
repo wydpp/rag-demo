@@ -110,14 +110,14 @@ def query_vector_store(collection_name: str, query: str, limit: int = 5):
         relation_content += result.payload['page_content'] + "\n"
     # 3.根据query和向量查询结果构建promotion
     prompt = f"""
-    你是一位 AI 助手，负责回答用户问题。请根据提供的检索内容，优化回答，使其更加完整、准确和可读。
+    你是一位 AI 助手，负责回答用户问题。请根据提供的检索原始内容，优化回答，使其更加完整、准确和可读。
     
     **用户问题**: {query}
     
     **检索到的原始内容**:
     {relation_content}
     
-    **优化后的回答**:
+    **通过上面检索到的原始内容，进行回答优化后的回答**:
     """
     print(f"构造的prompt==> {prompt}")
 
