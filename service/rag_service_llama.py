@@ -1,3 +1,7 @@
+
+"""
+基于 llama_index 实现
+"""
 from typing import List
 
 from llama_index.core import VectorStoreIndex, Settings, StorageContext, SimpleDirectoryReader
@@ -6,7 +10,7 @@ from llama_index.vector_stores.qdrant import QdrantVectorStore
 from qdrant_client import QdrantClient
 
 from config.config import QDRANT_HOST, QDRANT_PORT, DATA_PATH, DEEPSEEK_BASE_URL, DEFAULT_MODEL, DEEPSEEK_API_KEY
-from service.file_embedding import llama_index_embedding_adapter
+from service.file_embedding_service import llama_index_embedding_adapter
 
 # 设置 deepseek api
 llm = DeepSeek(model=DEFAULT_MODEL, api_key=DEEPSEEK_API_KEY, api_base=DEEPSEEK_BASE_URL)
@@ -46,9 +50,9 @@ def get_vector_store_index(collection_name: str):
 
 
 # 文本向量化存储接口
-def store_text_to_vector(file_path: List[str], collection_name: str):
+def store_text_to_vector(file_path: str, collection_name: str):
     # 读取数据
-    documents = SimpleDirectoryReader(input_files=file_path).load_data()
+    documents = SimpleDirectoryReader(input_dir=file_path).load_data()
     index = get_vector_store_index(collection_name)
     for document in documents:
         index.insert(document)

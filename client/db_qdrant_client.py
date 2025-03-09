@@ -1,5 +1,5 @@
 """
-向量数据库操作接口
+qdrant向量数据库操作接口
 """
 from typing import List
 
@@ -10,7 +10,7 @@ from config.config import QDRANT_HOST, QDRANT_PORT, VECTOR_SIZE
 
 
 # 向量数据库对象
-class QdrantClient:
+class DBQdrantClient:
 
     def __init__(self):
         self.client = QdrantClient(url=QDRANT_HOST, port=QDRANT_PORT)
@@ -56,7 +56,7 @@ class QdrantClient:
         )
 
 if __name__ == '__main__':
-    qdrant = QdrantClient()
+    qdrant = DBQdrantClient()
     collection_name = "rag-demo-test"
     collection = qdrant.get_collection(collection_name=collection_name)
     print(collection)

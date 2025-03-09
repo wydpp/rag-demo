@@ -13,7 +13,8 @@ DEEPSEEK_API_KEY = os.environ["DASHSCOPE_API_KEY"]
 DEEPSEEK_BASE_URL = "http://127.0.0.1:8080/v1"
 
 # 向量化模型地址
-EMBEDDING_MODEL_PATH = "D:/ai/model/iic/nlp_gte_sentence-embedding_chinese-large"
+#EMBEDDING_MODEL_PATH = "D:/ai/model/iic/nlp_gte_sentence-embedding_chinese-large"
+EMBEDDING_MODEL_PATH = "D:/ai/model/iic/nlp_gte_sentence-embedding_chinese-small"
 
 MODELS = [
     "deepseek-r1",  # 免费的deepseek1.5b模型
@@ -30,7 +31,7 @@ QDRANT_HOST = "http://192.168.0.111"
 # 向量数据库端口
 QDRANT_PORT = 6333
 
-VECTOR_SIZE = 1024
+VECTOR_SIZE = 512
 
 CHUNK_SIZE = 500
 CHUNK_OVERLAP = 100
